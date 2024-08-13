@@ -1,0 +1,30 @@
+<section class="cabecalho">
+    <h1 class="cabecalho__titulo">Tabela de Estoque</h1>
+    <nav class="cabecalho__menu">
+        <p class="cabecalho__menu__botao" id="novo">Adicionar Novo Item</p>
+        <p routerLink="/tabela" class="cabecalho__menu__botao" id="ver">Ver Tabela</p>
+        <p class="cabecalho__menu__botao" id="apagar">Apagar Tudo</p>
+        <p routerLink="/start" class="cabecalho__menu__botao" id="voltar">Voltar</p>
+    </nav>
+</section>
+<section class="principal">
+    <form class="formulario" [formGroup]="itemForm" (ngSubmit)="salvarItem()">
+        <h1 class="formulario__item">Novo Produto</h1>
+        <label class="formulario__item">Produto:
+            <input class="formulario__item input" type="text" id="nome" formControlName="nome">
+        </label>
+        <label class="formulario__item">Quantidade inicial:
+            <input class="formulario__item input" type="number" id="qt" formControlName="qt">
+        </label>
+        <label class="formulario__item">Medida:
+            <select class="formulario__item input" id="md" formControlName="md">
+                <option value="un">un</option>
+                <option value="kg">kg</option>
+                <option value="cx">cx</option>
+                <option value="lt">lt</option>
+                <option value="pct">pct</option>
+            </select>
+        </label>
+        <input class="formulario__item submit" type="submit" name="sub">
+    </form>
+</section>

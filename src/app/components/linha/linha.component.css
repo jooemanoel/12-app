@@ -1,0 +1,28 @@
+.tabela {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.linha {
+    display: flex;
+}
+
+.celula {
+    flex: 1;
+    padding: 0.25rem;
+    cursor: pointer;
+    border: 0.1rem solid var(--cor4);
+    text-align: center;
+}
+
+.celula-x {
+    flex: 1;
+    padding: 0.25rem;
+    cursor: pointer;
+    border: 0.1rem solid var(--cor4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -1,0 +1,79 @@
+.cabecalho {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.cabecalho__titulo {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    background-color: var(--cor4);
+}
+
+.cabecalho__menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.cabecalho__menu__botao {
+    flex: 1;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    background-color: var(--cor4);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cabecalho__menu__botao:hover {
+    background-color: yellow;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.tabela {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.linha {
+    display: flex;
+}
+
+.celula {
+    flex: 1;
+    padding: 0.25rem;
+    cursor: pointer;
+    border: 0.1rem solid var(--cor4);
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .cabecalho__menu {
+        flex-direction: column;
+    }
+
+    .cabecalho__menu__botao {
+        width: 99%;
+    }
+}

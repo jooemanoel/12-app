@@ -1,0 +1,116 @@
+.cabecalho {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.cabecalho__titulo {
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    background-color: var(--cor4);
+}
+
+.cabecalho__menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.cabecalho__menu__botao {
+    flex: 1;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    background-color: var(--cor4);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cabecalho__menu__botao:hover {
+    background-color: yellow;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.tabela {
+    max-width: 800px;
+    width: 100%;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    line-height: 1.5;
+    border-radius: 0.5rem;
+}
+
+th,
+td {
+    cursor: pointer;
+    border: 0.1rem solid var(--cor4);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.formulario {
+    max-width: 800px;
+    width: 100%;
+    padding: 0.5rem;
+    border: 0.5rem solid var(--cor4);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario__item {
+    width: 100%;
+    text-align: center;
+}
+
+.input {
+    padding: 0.5rem 0;
+    border: 0.1rem solid var(--cor4);
+    border-radius: 0.5rem;
+    background-color: var(--cor1);
+    text-align: center;
+}
+
+.submit {
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+    border: 0.1rem solid var(--cor4);
+    border-radius: 0.5rem;
+    background-color: var(--cor4);
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: yellow;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .cabecalho__menu {
+        flex-direction: column;
+    }
+
+    .cabecalho__menu__botao {
+        width: 99%;
+    }
+}
