@@ -1,23 +1,24 @@
 :root {
-    --backColor: #1A3636;
-    --fontColor: #D6BD98;
-    --altColor: #40534C;
+    --backColor: #CCCCCC;
+    --fontColor: #222222;
+    --altColor: #BBAA99;
     --hoverColor: #677D6A;
     --cor1: #808D7C;
     --cor2: #C9DABF;
     --cor3: #9CA986;
     --cor4: #5F6F65;
-    --bordaRaio: 0.5rem;
+    --espacamento: 0.5rem;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
-    padding: 0.25rem;
-    background-color: var(--backColor);
     color: var(--fontColor);
+    background-color: var(--backColor);
 }
