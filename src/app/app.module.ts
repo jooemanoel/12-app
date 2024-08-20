@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { TabelaComponent } from './components/tabela/tabela.component';
 import { LinhaComponent } from './components/linha/linha.component';
-import { StartComponent } from './components/start/start.component';
 import { ContainerComponent } from './components/container/container.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { ContainerComponent } from './components/container/container.component';
     FormularioComponent,
     TabelaComponent,
     LinhaComponent,
-    StartComponent,
     ContainerComponent
   ],
   imports: [
