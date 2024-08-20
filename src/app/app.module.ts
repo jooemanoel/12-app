@@ -5,10 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormularioComponent } from './components/formulario/formulario.component';
-import { TabelaComponent } from './components/tabela/tabela.component';
+import { FormularioComponent } from './pages/formulario/formulario.component';
+import { TabelaComponent } from './pages/tabela/tabela.component';
 import { LinhaComponent } from './components/linha/linha.component';
 import { ContainerComponent } from './components/container/container.component';
+import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContainerComponent } from './components/container/container.component';
     FormularioComponent,
     TabelaComponent,
     LinhaComponent,
-    ContainerComponent
+    ContainerComponent,
+    CabecalhoComponent
   ],
   imports: [
     BrowserModule,

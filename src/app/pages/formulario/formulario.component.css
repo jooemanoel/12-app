@@ -1,0 +1,40 @@
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--espacamento);
+}
+
+.formulario__item {
+    width: 100%;
+    flex: 1;
+    font-weight: bold;
+    background-color: var(--altColor);
+    padding: var(--espacamento);
+    box-shadow: 0 0 var(--espacamento);
+}
+
+.input {
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: var(--backColor);
+    text-align: center;
+    border: none;
+}
+
+.submit {
+    border: none;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: yellow;
+}

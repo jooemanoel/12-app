@@ -1,0 +1,12 @@
+<section class="principal">
+    <div class="tabela">
+        <div class="linha-cabecalho">
+            <span class="celula">Produto</span>
+            <span class="celula">Quantidade</span>
+            <span class="celula">Medida</span>
+        </div>
+        <div class="linha" *ngFor="let item of itens">
+            <app-linha [item]="item" (itemModificado)="($event)"></app-linha>
+        </div>
+    </div>
+</section>

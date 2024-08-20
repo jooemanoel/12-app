@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TabelaComponent } from './components/tabela/tabela.component';
-import { FormularioComponent } from './components/formulario/formulario.component';
+import { TabelaComponent } from './pages/tabela/tabela.component';
+import { FormularioComponent } from './pages/formulario/formulario.component';
 
 const routes: Routes = [
   {

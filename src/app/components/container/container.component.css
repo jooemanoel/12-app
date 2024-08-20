@@ -9,4 +9,14 @@
     align-items: stretch;
     padding: var(--espacamento);
     gap: var(--espacamento);
+    /* background: linear-gradient(to right, var(--cores-dancantes));
+    position: relative;
+    z-index: 999;
+    animation: coresDancantes 2s linear infinite; */
+}
+
+@keyframes coresDancantes {
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }

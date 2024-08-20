@@ -1,26 +1,3 @@
-.cabecalho {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--espacamento);
-    background: linear-gradient(to right, var(--cores-dancantes));
-    position: relative;
-    z-index: 999;
-    animation: coresDancantes 2s linear infinite;
-}
-
-@keyframes coresDancantes {
-    100% {
-        filter: hue-rotate(360deg);
-    }
-}
-
-.cabecalho__titulo {
-    background-color: var(--altColor);
-    padding: var(--espacamento);
-    box-shadow: 0 0 var(--espacamento);
-}
-
 .principal {
     flex: 1;
 }

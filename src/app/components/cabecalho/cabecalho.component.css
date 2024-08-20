@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: space-between;
     gap: var(--espacamento);
 }
 
@@ -14,7 +13,7 @@
 
 .cabecalho__menu {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: var(--espacamento);
 }
@@ -32,45 +31,8 @@
     background-color: var(--hoverColor);
 }
 
-.principal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 0;
-}
-
-.tabela {
-    max-width: 800px;
-    width: 100%;
-    flex-direction: column;
-}
-
-.linha {
-    display: flex;
-    gap: var(--espacamento);
-}
-
-.celula {
-    flex: 1;
-    cursor: pointer;
-    text-align: center;
-    font-weight: bold;
-    background-color: var(--altColor);
-    padding: var(--espacamento);
-    box-shadow: 0 0 var(--espacamento);
-}
-
-.hidden {
-    display: none;
-}
-
 @media (max-width: 800px) {
     .cabecalho__menu {
         flex-direction: column;
-    }
-
-    .cabecalho__menu__botao {
-        width: 100%;
     }
 }
