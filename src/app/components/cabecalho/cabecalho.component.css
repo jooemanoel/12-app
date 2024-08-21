@@ -44,17 +44,33 @@
     background-color: var(--hoverColor);
 }
 
+.hidden {
+    display: none;
+}
+
 @media (max-width: 800px) {
+    .cabecalho {
+        position: relative;
+    }
+
+    .cabecalho__titulo {
+        justify-content: space-between;
+    }
+
+    .cabecalho__titulo__titulo {
+        flex: 1;
+    }
+
     .cabecalho__menu {
         flex-direction: column;
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: calc(100% + var(--espacamento));
     }
 
     .cabecalho__burguer {
         display: block;
-    }
-
-    .cabecalho__menu {
-        display: none;
     }
 
     .burguer-menu-checkbox:checked~.cabecalho__menu {

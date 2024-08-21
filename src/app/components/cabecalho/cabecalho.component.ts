@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./cabecalho.component.css']
 })
 export class CabecalhoComponent {
-
+  menuAberto: boolean = false;
+  abrir() {
+    this.menuAberto = true;
+  }
+  sumir() {
+    this.menuAberto = false;
+  }
 }

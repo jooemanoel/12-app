@@ -1,14 +1,15 @@
 <section class="cabecalho">
-    <input class="burguer-menu-checkbox" type="checkbox" id="burguer-menu-checkbox">
+    <input class="burguer-menu-checkbox" [(ngModel)]="menuAberto" (click)="abrir()" type="checkbox"
+        id="burguer-menu-checkbox">
     <div class="cabecalho__titulo">
         <label for="burguer-menu-checkbox">
             <img class="cabecalho__burguer" src="./assets/burger-menu.svg" alt="burguer">
         </label>
         <h1 class="cabecalho__titulo__titulo">Cabeçalho Padrão</h1>
     </div>
-    <nav class="cabecalho__menu">
-        <p routerLink="/formulario" class="cabecalho__menu__botao" id="novo">Adicionar Novo Item</p>
-        <p routerLink="/tabela" class="cabecalho__menu__botao" id="ver">Ver Tabela</p>
-        <p class="cabecalho__menu__botao" id="apagar">Apagar Tudo</p>
+    <nav class="cabecalho__menu" ngClass="">
+        <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/formulario" id="novo">Adicionar Novo Item</p>
+        <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/tabela" id="ver">Ver Tabela</p>
+        <p class="cabecalho__menu__botao" (click)="sumir()" id="apagar">Apagar Tudo</p>
     </nav>
 </section>
