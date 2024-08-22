@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build --configuration=production --output-path docs --base-href /12-app/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "server": "json-server --watch ./json-server/db.json --port 3000"
   },
   "private": true,
   "dependencies": {

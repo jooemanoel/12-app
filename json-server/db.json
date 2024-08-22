@@ -1,0 +1,16 @@
+{
+  "lista": [
+    {
+      "nome": "Arroz",
+      "qt": 4,
+      "md": "un",
+      "id": 4
+    },
+    {
+      "nome": "Feijão",
+      "qt": 0,
+      "md": "un",
+      "id": 5
+    }
+  ]
+}
