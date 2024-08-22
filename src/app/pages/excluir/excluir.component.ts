@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Item } from 'src/app/services/item';
+import { Item } from 'src/app/shared/item';
 import { ListaService } from 'src/app/services/lista.service';
 
 @Component({

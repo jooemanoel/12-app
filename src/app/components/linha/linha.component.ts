@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Item } from 'src/app/services/item';
+import { Item } from 'src/app/shared/item';
 import { ListaService } from 'src/app/services/lista.service';
 
 @Component({

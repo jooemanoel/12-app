@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Item } from 'src/app/services/item';
+import { Item } from 'src/app/shared/item';
 import { ListaService } from 'src/app/services/lista.service';
 
 @Component({
