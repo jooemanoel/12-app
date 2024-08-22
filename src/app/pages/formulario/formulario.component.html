@@ -1,5 +1,5 @@
 <section class="principal">
-    <form class="formulario" [formGroup]="itemForm" (ngSubmit)="salvarItem()">
+    <form class="formulario" [formGroup]="formulario" (ngSubmit)="salvarItem()">
         <label class="formulario__item" for="nome">Produto:</label>
         <input class="formulario__item input" type="text" id="nome" formControlName="nome">
         <label class="formulario__item" for="qt">Quantidade inicial:

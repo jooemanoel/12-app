@@ -7,26 +7,31 @@ import { Item } from './item';
   providedIn: 'root'
 })
 export class ListaService {
-  // json-server
-  private readonly API = 'https://json-server-seven-alpha.vercel.app/lista';
+  // private readonly API = 'https://json-server-seven-alpha.vercel.app/lista';
+  private readonly API = 'http://127.0.0.1:3000/lista';
   constructor(private http: HttpClient) {
   }
 
-  getItens(): Observable<Item[]> {
+  listar(): Observable<Item[]> {
     return this.http.get<Item[]>(this.API);
   }
 
-  salvarItem(item: Item): Observable<Item> {
-
-    if (item.id) {
-      return this.editarItem(item);
-    }
-    else {
-      return this.http.post<Item>(this.API, item);
-    }
+  criar(item: Item): Observable<Item> {
+    return this.http.post<Item>(this.API, item);
   }
-  editarItem(item: Item): Observable<Item> {
+
+  buscar(id: number): Observable<Item> {
+    const url: string = `${this.API}/${id}`;
+    return this.http.get<Item>(url);
+  }
+
+  editar(item: Item): Observable<Item> {
     const url: string = `${this.API}/${item.id}`;
     return this.http.put<Item>(url, item);
+  }
+
+  excluir(id: number): Observable<Item> {
+    const url = `${this.API}/${id}`;
+    return this.http.delete<Item>(url);
   }
 }

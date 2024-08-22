@@ -9,12 +9,11 @@ import { ListaService } from 'src/app/services/lista.service';
 })
 export class TabelaComponent {
   itens: Item[] = [];
-  constructor(private listaService: ListaService) {
+  constructor(private service: ListaService) {
   }
   ngOnInit() {
-    this.listaService.getItens().subscribe(listaItens => {
+    this.service.listar().subscribe(listaItens => {
       this.itens = listaItens;
-      console.log(listaItens);
     });
   }
 }

@@ -1,5 +1,15 @@
 <div class="linha">
-    <div class="celula">{{item.nome}}</div>
-    <div class="celula-x"><span (click)="diminui()">-</span>{{item.qt}}<span (click)="aumenta()">+</span></div>
-    <div class="celula">{{item.md}}</div>
+    <div class="celula">
+        <img routerLink="/formulario/{{item.id}}" class="imagem" src="./assets/icone-editar.png" alt="Editar">
+        <span class="texto">{{item.nome}}</span>
+    </div>
+    <div class="celula">
+        <span (click)="diminui()">-</span>
+        <span class="texto">{{item.qt}}</span>
+        <span (click)="aumenta()">+</span>
+    </div>
+    <div class="celula">
+        <span class="texto">{{item.md}}</span>
+        <img routerLink="/excluir/{{item.id}}" class="imagem" src="./assets/icone-excluir.png" alt="Excluir">
+    </div>
 </div>

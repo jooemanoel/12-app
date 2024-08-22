@@ -1,0 +1,10 @@
+<section class="principal">
+    <div class="formulario__item">
+        <p>Produto: {{item.nome}}</p>
+        <p>Quantidade: {{item.qt}}</p>
+        <p>Medida: {{item.md}}</p>
+    </div>
+    <p class="formulario__item submit">Confirma a exclusão deste item?</p>
+    <button class="formulario__item submit" (click)="excluir()">Confirmar</button>
+    <button class="formulario__item submit" routerLink="/tabela">Cancelar</button>
+</section>

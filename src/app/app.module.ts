@@ -10,6 +10,7 @@ import { TabelaComponent } from './pages/tabela/tabela.component';
 import { LinhaComponent } from './components/linha/linha.component';
 import { ContainerComponent } from './components/container/container.component';
 import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
+import { ExcluirComponent } from './pages/excluir/excluir.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
     TabelaComponent,
     LinhaComponent,
     ContainerComponent,
-    CabecalhoComponent
+    CabecalhoComponent,
+    ExcluirComponent
   ],
   imports: [
     BrowserModule,

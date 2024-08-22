@@ -21,16 +21,12 @@ export class LinhaComponent {
   aumenta() {
     this.item.qt++;
     this.itemModificado.emit(this.item);
-    console.log(this.item);
-    this.listaService.salvarItem(this.item).subscribe(() => {
-    });
+    this.listaService.editar(this.item).subscribe();
   }
   diminui() {
     if (this.item.qt >= 0) {
       this.item.qt--;
-      console.log(this.item);
-      this.listaService.salvarItem(this.item).subscribe(() => {
-      });
+      this.listaService.editar(this.item).subscribe();
     }
   }
 }

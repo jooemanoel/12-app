@@ -4,19 +4,23 @@
     gap: var(--espacamento);
 }
 
-.celula,
-.celula-x {
+.celula {
     flex: 1;
     cursor: pointer;
-    text-align: center;
     font-weight: bold;
     background-color: var(--altColor);
     padding: var(--espacamento);
     box-shadow: 0 0 var(--espacamento);
-}
-
-.celula-x {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.imagem {
+    max-height: 1rem;
+    max-width: 1rem;
+}
+
+.texto {
+    flex: 1;
 }
