@@ -10,8 +10,11 @@ import { ListaService } from 'src/app/services/lista.service';
 })
 export class ExcluirComponent implements OnInit {
 
-  id: string = '';
-  item: Item = { nome: '', qt: 0, md: '' };
+  id = '';
+  item: Item = {
+    nome: '', qt: 0, md: '',
+    id: 0
+  };
 
   constructor(private service: ListaService, private router: Router, private route: ActivatedRoute) { }
 
@@ -19,20 +22,14 @@ export class ExcluirComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     if (this.id) {
       this.service.buscar(parseInt(this.id)).subscribe((item) => {
-        this.item = item;
+        if (item) this.item = item;
       });
     }
   }
 
   excluir() {
-    if (this.item.id) {
-      this.service.excluir(this.item.id).subscribe(() => {
-        this.router.navigateByUrl('/tabela');
-      });
-    }
-    else {
-      alert('Item não encontrado!');
+    this.service.excluir(this.item.id).subscribe(() => {
       this.router.navigateByUrl('/tabela');
-    }
+    });
   }
 }

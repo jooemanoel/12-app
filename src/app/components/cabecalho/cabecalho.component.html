@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <section class="cabecalho">
     <input class="burguer-menu-checkbox" [(ngModel)]="menuAberto" (click)="abrir()" type="checkbox"
         id="burguer-menu-checkbox">
@@ -8,7 +10,8 @@
         <h1 class="cabecalho__titulo__titulo">Tabela de Estoque</h1>
     </div>
     <nav class="cabecalho__menu" ngClass="">
-        <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/formulario" id="novo">Adicionar Novo Item</p>
+        <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/formulario" id="novo">Adicionar Novo Item
+        </p>
         <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/tabela" id="ver">Ver Tabela</p>
         <p class="cabecalho__menu__botao" (click)="sumir()" id="apagar">Apagar Tudo</p>
     </nav>

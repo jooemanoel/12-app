@@ -6,7 +6,7 @@
             <span class="celula">Medida</span>
         </div>
         <div class="linha" *ngFor="let item of itens">
-            <app-linha [item]="item" (itemModificado)="($event)"></app-linha>
+            <app-linha [item]="item" (itemModificado)="modificarItem($event)"></app-linha>
         </div>
     </div>
 </section>

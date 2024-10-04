@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Item } from 'src/app/shared/item';
 import { ListaService } from 'src/app/services/lista.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { ListaService } from 'src/app/services/lista.service';
 })
 export class FormularioComponent implements OnInit {
   formulario!: FormGroup;
-  id: string = '';
+  id = '';
 
   constructor(private service: ListaService, private router: Router, private route: ActivatedRoute) { }
 
@@ -32,7 +31,7 @@ export class FormularioComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     if (this.id) {
       this.service.buscar(parseInt(this.id)).subscribe((item) => {
-        this.formulario.patchValue(item);
+        if (item) this.formulario.patchValue(item);
       });
     }
   }

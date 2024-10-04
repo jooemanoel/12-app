@@ -1,5 +1,5 @@
 export interface Item {
-    id?: number;
+    id: number;
     nome: string;
     qt: number;
     md: string;

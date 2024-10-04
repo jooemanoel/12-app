@@ -8,16 +8,9 @@ import { ListaService } from 'src/app/services/lista.service';
   styleUrls: ['./linha.component.css']
 })
 export class LinhaComponent {
-
   @Input() item!: Item;
   @Output() itemModificado = new EventEmitter<Item>();
-
-  constructor(private listaService: ListaService) {
-  }
-
-  ngOnInit() {
-  }
-
+  constructor(private listaService: ListaService) { }
   aumenta() {
     this.item.qt++;
     this.itemModificado.emit(this.item);

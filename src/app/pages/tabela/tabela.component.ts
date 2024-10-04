@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/shared/item';
 import { ListaService } from 'src/app/services/lista.service';
 
@@ -7,7 +7,7 @@ import { ListaService } from 'src/app/services/lista.service';
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.css']
 })
-export class TabelaComponent {
+export class TabelaComponent implements OnInit {
   itens: Item[] = [];
   constructor(private service: ListaService) {
   }
@@ -15,5 +15,8 @@ export class TabelaComponent {
     this.service.listar().subscribe(listaItens => {
       this.itens = listaItens;
     });
+  }
+  modificarItem(item: Item) {
+    console.log(item);
   }
 }
