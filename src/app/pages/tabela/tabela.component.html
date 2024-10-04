@@ -1,11 +1,13 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <section class="principal">
     <div class="tabela">
         <div class="linha-cabecalho">
-            <span class="celula">Produto</span>
-            <span class="celula">Quantidade</span>
-            <span class="celula">Medida</span>
+            <div class="celula" (click)="ordenarPorNome()">Produto</div>
+            <div class="celula" (click)="ordenarPorQt()">Quantidade</div>
+            <div class="celula" (click)="ordenarPorMd()">Medida</div>
         </div>
-        <div class="linha" *ngFor="let item of itens">
+        <div class="linha" *ngFor="let item of lista">
             <app-linha [item]="item" (itemModificado)="modificarItem($event)"></app-linha>
         </div>
     </div>

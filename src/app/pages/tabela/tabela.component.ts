@@ -8,15 +8,22 @@ import { ListaService } from 'src/app/services/lista.service';
   styleUrls: ['./tabela.component.css']
 })
 export class TabelaComponent implements OnInit {
-  itens: Item[] = [];
+  lista: Item[] = [];
   constructor(private service: ListaService) {
   }
   ngOnInit() {
-    this.service.listar().subscribe(listaItens => {
-      this.itens = listaItens;
-    });
+    this.service.listar().subscribe(listaItens => this.lista = listaItens);
   }
   modificarItem(item: Item) {
-    console.log(item);
+    this.service.editar(item).subscribe();
+  }
+  ordenarPorNome() {
+    this.service.ordenarPorNome().subscribe(lista => this.lista = lista);
+  }
+  ordenarPorQt() {
+    this.service.ordenarPorQt().subscribe(lista => this.lista = lista);
+  }
+  ordenarPorMd() {
+    this.service.ordenarPorMd().subscribe(lista => this.lista = lista);
   }
 }

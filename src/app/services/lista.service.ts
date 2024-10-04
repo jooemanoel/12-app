@@ -7,6 +7,7 @@ import { Item } from '../shared/item';
 })
 export class ListaService {
   private lista: Item[] = [];
+  private crescente = false;
   salvar() {
     localStorage.setItem('Itens', JSON.stringify(this.lista));
   }
@@ -32,8 +33,35 @@ export class ListaService {
   }
   excluir(id: number): Observable<boolean> {
     const aux = this.lista.findIndex(itemDaLista => itemDaLista.id === id);
-    this.lista.splice(aux);
+    this.lista.splice(aux, 1);
     this.salvar();
     return of(true);
+  }
+  ordenarPorNome() {
+    this.crescente = !this.crescente;
+    if (this.crescente)
+      this.lista.sort((a, b) => a.nome.localeCompare(b.nome));
+    else
+      this.lista.sort((a, b) => b.nome.localeCompare(a.nome));
+    this.salvar();
+    return of(this.lista);
+  }
+  ordenarPorQt() {
+    this.crescente = !this.crescente;
+    if (this.crescente)
+      this.lista.sort((a, b) => a.qt - b.qt);
+    else
+      this.lista.sort((a, b) => b.qt - a.qt);
+    this.salvar();
+    return of(this.lista);
+  }
+  ordenarPorMd() {
+    this.crescente = !this.crescente;
+    if (this.crescente)
+      this.lista.sort((a, b) => a.md.localeCompare(b.md));
+    else
+      this.lista.sort((a, b) => b.md.localeCompare(a.md));
+    this.salvar();
+    return of(this.lista);
   }
 }

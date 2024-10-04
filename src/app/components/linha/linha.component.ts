@@ -14,12 +14,11 @@ export class LinhaComponent {
   aumenta() {
     this.item.qt++;
     this.itemModificado.emit(this.item);
-    this.listaService.editar(this.item).subscribe();
   }
   diminui() {
-    if (this.item.qt >= 0) {
+    if (this.item.qt > 0) {
       this.item.qt--;
-      this.listaService.editar(this.item).subscribe();
+      this.itemModificado.emit(this.item);
     }
   }
 }
