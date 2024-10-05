@@ -1,9 +1,3 @@
 .principal {
     flex: 1;
 }
-
-.rodape {
-    padding: var(--espacamento);
-    background-color: var(--altColor);
-    box-shadow: 0 0 var(--espacamento);
-}

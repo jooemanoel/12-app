@@ -4,10 +4,15 @@
     <input class="burguer-menu-checkbox" [(ngModel)]="menuAberto" (click)="abrir()" type="checkbox"
         id="burguer-menu-checkbox">
     <div class="cabecalho__titulo">
-        <label for="burguer-menu-checkbox">
+        <label class="burguer-label" for="burguer-menu-checkbox">
             <img class="cabecalho__burguer" src="./assets/burger-menu.svg" alt="burguer">
         </label>
         <h1 class="cabecalho__titulo__titulo">Tabela de Estoque</h1>
+        <button class="plus-button">
+            <img class="cabecalho__burguer" src="./assets/plus.svg" alt="navegar" *ngIf="tabela"
+                routerLink="/formulario">
+            <img class="cabecalho__burguer" src="./assets/back.svg" alt="navegar" *ngIf="!tabela" routerLink="/tabela">
+        </button>
     </div>
     <nav class="cabecalho__menu" ngClass="">
         <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/formulario" id="novo">Adicionar Novo Item

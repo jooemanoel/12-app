@@ -44,6 +44,12 @@
     background-color: var(--hoverColor);
 }
 
+.plus-button {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
 .hidden {
     display: none;
 }
@@ -79,5 +85,10 @@
 
     .burguer-menu-checkbox:checked~.cabecalho__menu {
         display: block;
+    }
+
+    .burguer-menu-checkbox:checked~.cabecalho__titulo>.burguer-label {
+        border-radius: 50%;
+        background-color: grey;
     }
 }
