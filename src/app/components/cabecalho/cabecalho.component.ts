@@ -5,18 +5,22 @@ import { filter, map, Subscription } from 'rxjs';
 @Component({
   selector: 'app-cabecalho',
   templateUrl: './cabecalho.component.html',
-  styleUrls: ['./cabecalho.component.css']
+  styleUrls: ['./cabecalho.component.css'],
 })
 export class CabecalhoComponent implements OnInit, OnDestroy {
   tabela = true;
   menuAberto = false;
   subscription!: Subscription;
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
   ngOnInit(): void {
-    this.subscription = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(event => (event as NavigationEnd).url)
-    ).subscribe(url => this.tabela = url === '/tabela' ? true : false);
+    this.subscription = this.router.events
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        map((event) => (event as NavigationEnd).url)
+      )
+      .subscribe(
+        (url) => (this.tabela = url === '/tabela' || url === '/' ? true : false)
+      );
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
