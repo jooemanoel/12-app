@@ -1,34 +1,34 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter, map, Subscription } from 'rxjs';
+import { Component, Input } from '@angular/core';
+import { ListaService } from 'src/app/services/lista.service';
+import { Item } from 'src/app/shared/item';
 
 @Component({
   selector: 'app-cabecalho',
   templateUrl: './cabecalho.component.html',
   styleUrls: ['./cabecalho.component.css'],
 })
-export class CabecalhoComponent implements OnInit, OnDestroy {
-  tabela = true;
-  menuAberto = false;
-  subscription!: Subscription;
-  constructor(private router: Router) {}
-  ngOnInit(): void {
-    this.subscription = this.router.events
-      .pipe(
-        filter((event) => event instanceof NavigationEnd),
-        map((event) => (event as NavigationEnd).url)
-      )
-      .subscribe(
-        (url) => (this.tabela = url === '/tabela' || url === '/' ? true : false)
-      );
+export class CabecalhoComponent {
+  @Input() set edicao(idItemEmEdicao: number) {
+    this.idItemEmEdicao = idItemEmEdicao;
+    if (idItemEmEdicao !== -1)
+      this.input = this.lista[idItemEmEdicao].nome;
   }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  idItemEmEdicao = -1;
+  input = '';
+  constructor(private service: ListaService) { }
+  get lista() {
+    return this.service.getLista();
   }
-  abrir() {
-    this.menuAberto = true;
+  get textoBotao() {
+    return this.idItemEmEdicao === -1 ? 'Adicionar' : 'Editar';
   }
-  sumir() {
-    this.menuAberto = false;
+  adicionarItem() {
+    const item: Item = {
+      id: 0,
+      nome: this.input,
+      qt: 0
+    };
+    this.service.criar(item);
+    this.input = '';
   }
 }

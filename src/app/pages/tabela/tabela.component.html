@@ -1,14 +1,40 @@
-<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
-<section class="principal">
-    <div class="tabela">
-        <div class="linha-cabecalho">
-            <div class="celula" (click)="ordenarPorNome()">Produto</div>
-            <div class="celula" (click)="ordenarPorQt()">Quantidade</div>
-            <div class="celula" (click)="ordenarPorMd()">Medida</div>
-        </div>
-        <div class="linha" *ngFor="let item of lista">
-            <app-linha [item]="item" (itemModificado)="modificarItem($event)"></app-linha>
-        </div>
-    </div>
-</section>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col-8">
+                    <button class="btn btn-dark w-100" (click)="ordenarPorNome()">Produto</button>
+                </th>
+                <th class="col-4">
+                    <button class="btn btn-dark w-100" (click)="ordenarPorQt()">Quantidade</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let item of lista">
+                <td>
+                    <div class="d-flex">
+                        <button class="btn btn-dark" (click)="editarItem(item)">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <button class="btn btn-dark" (click)="apagarItem(item)">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                        <div class="flex-fill d-flex align-items-center justify-content-center">{{item.nome}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <button class="btn btn-dark" (click)="diminui(item)">
+                            <i class="bi bi-arrow-down-circle"></i>
+                        </button>
+                        <div class="flex-fill d-flex align-items-center justify-content-center">{{item.qt}}</div>
+                        <button class="btn btn-dark" (click)="aumenta(item)">
+                            <i class="bi bi-arrow-up-circle"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

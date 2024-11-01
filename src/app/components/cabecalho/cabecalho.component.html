@@ -1,23 +1,10 @@
-<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
-<section class="cabecalho">
-    <input class="burguer-menu-checkbox" [(ngModel)]="menuAberto" (click)="abrir()" type="checkbox"
-        id="burguer-menu-checkbox">
-    <div class="cabecalho__titulo">
-        <label class="burguer-label" for="burguer-menu-checkbox">
-            <img class="cabecalho__burguer" src="./assets/burger-menu.svg" alt="burguer">
-        </label>
-        <h1 class="cabecalho__titulo__titulo">Tabela de Estoque</h1>
-        <button class="plus-button">
-            <img class="cabecalho__burguer" src="./assets/plus.svg" alt="navegar" *ngIf="tabela"
-                routerLink="/formulario">
-            <img class="cabecalho__burguer" src="./assets/back.svg" alt="navegar" *ngIf="!tabela" routerLink="/tabela">
-        </button>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand">Tabela de estoque</a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" name="input" type="search" placeholder="Digite um produto"
+                aria-label="Digite um produto" [(ngModel)]="input">
+            <button class="btn btn-outline-success" type="submit" (click)="adicionarItem()">{{textoBotao}}</button>
+        </form>
     </div>
-    <nav class="cabecalho__menu" ngClass="">
-        <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/formulario" id="novo">Adicionar Novo Item
-        </p>
-        <p class="cabecalho__menu__botao" (click)="sumir()" routerLink="/tabela" id="ver">Ver Tabela</p>
-        <p class="cabecalho__menu__botao" (click)="sumir()" id="apagar">Apagar Tudo</p>
-    </nav>
-</section>
+</nav>

@@ -7,8 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { TabelaComponent } from './pages/tabela/tabela.component';
-import { LinhaComponent } from './components/linha/linha.component';
-import { ContainerComponent } from './components/container/container.component';
 import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
 import { ExcluirComponent } from './pages/excluir/excluir.component';
 
@@ -17,8 +15,6 @@ import { ExcluirComponent } from './pages/excluir/excluir.component';
     AppComponent,
     FormularioComponent,
     TabelaComponent,
-    LinhaComponent,
-    ContainerComponent,
     CabecalhoComponent,
     ExcluirComponent
   ],

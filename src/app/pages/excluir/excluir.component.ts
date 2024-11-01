@@ -12,7 +12,7 @@ export class ExcluirComponent implements OnInit {
 
   id = '';
   item: Item = {
-    nome: '', qt: 0, md: '',
+    nome: '', qt: 0,
     id: 0
   };
 

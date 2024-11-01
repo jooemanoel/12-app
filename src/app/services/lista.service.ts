@@ -8,17 +8,27 @@ import { Item } from '../shared/item';
 export class ListaService {
   private lista: Item[] = [];
   private crescente = false;
+  idItemEmEdicao = -1;
+  getLista() {
+    return this.lista;
+  }
   salvar() {
     localStorage.setItem('Itens', JSON.stringify(this.lista));
   }
   listar(): Observable<Item[]> {
-    this.lista = JSON.parse(localStorage.getItem('Itens') || '[]');
+    this.lista = JSON.parse(localStorage.getItem('Itens') ?? '[]');
     return of(this.lista);
   }
   criar(item: Item): Observable<Item> {
-    item.id = this.lista.length ? this.lista[this.lista.length - 1].id + 1 : 0;
-    this.lista.push(item);
-    this.salvar();
+    if (this.idItemEmEdicao !== -1) {
+      this.lista[this.idItemEmEdicao].nome = item.nome;
+      this.idItemEmEdicao = -1;
+    }
+    else {
+      item.id = this.lista.length ? this.lista[this.lista.length - 1].id + 1 : 0;
+      this.lista.push(item);
+      this.salvar();
+    }
     return of(item);
   }
   buscar(id: number) {
@@ -52,15 +62,6 @@ export class ListaService {
       this.lista.sort((a, b) => a.qt - b.qt);
     else
       this.lista.sort((a, b) => b.qt - a.qt);
-    this.salvar();
-    return of(this.lista);
-  }
-  ordenarPorMd() {
-    this.crescente = !this.crescente;
-    if (this.crescente)
-      this.lista.sort((a, b) => a.md.localeCompare(b.md));
-    else
-      this.lista.sort((a, b) => b.md.localeCompare(a.md));
     this.salvar();
     return of(this.lista);
   }
