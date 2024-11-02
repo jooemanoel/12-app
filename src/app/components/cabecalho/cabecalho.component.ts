@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { ListaService } from 'src/app/services/lista.service';
 
 @Component({
@@ -7,18 +7,17 @@ import { ListaService } from 'src/app/services/lista.service';
   styleUrls: ['./cabecalho.component.css'],
 })
 export class CabecalhoComponent {
-  @Input() set edicao(idItemEmEdicao: number) {
-    this.idItemEmEdicao = idItemEmEdicao;
-    this.input = idItemEmEdicao !== -1 ? this.lista[idItemEmEdicao].nome : '';
-  }
-  idItemEmEdicao = -1;
   input = '';
-  constructor(private service: ListaService) { }
+  constructor(private service: ListaService) {
+    effect(() => {
+      this.input = this.service.id !== -1 ? this.lista[this.service.id].nome : '';
+    });
+  }
   get lista() {
     return this.service.lista;
   }
   get textoBotao() {
-    return this.idItemEmEdicao === -1 ? 'Adicionar' : 'Editar';
+    return this.service.id === -1 ? 'Adicionar' : 'Editar';
   }
   adicionarItem() {
     this.service.criar(this.input);

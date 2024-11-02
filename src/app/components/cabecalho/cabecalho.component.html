@@ -1,10 +1,15 @@
 <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand">Tabela de estoque</a>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" name="input" type="search" placeholder="Digite um produto"
-                aria-label="Digite um produto" [(ngModel)]="input">
-            <button class="btn btn-outline-success" type="submit" (click)="adicionarItem()">{{textoBotao}}</button>
-        </form>
+        <div class="text-center w-100">
+            <a class="navbar-brand">Tabela de estoque</a>
+        </div>
     </div>
 </nav>
+<div class="container pt-3">
+    <div class="hstack gap-3">
+        <input class="form-control me-auto" name="input" type="text" placeholder="Adicionar um produto"
+            aria-label="Adicionar um produto" [(ngModel)]="input">
+        <button type="button" class="btn btn-primary" (click)="adicionarItem()"
+            [disabled]="!input">{{textoBotao}}</button>
+    </div>
+</div>

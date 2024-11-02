@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Item } from '../shared/item';
 
@@ -8,9 +8,9 @@ import { Item } from '../shared/item';
 export class ListaService {
   private _lista: Item[] = [];
   private crescente = false;
-  private idItemEmEdicao = -1;
-  get id(): number {
-    return this.idItemEmEdicao;
+  private _id = signal(-1);
+  get id() {
+    return this._id();
   }
   get lista(): readonly Item[] {
     return this._lista;
@@ -23,9 +23,9 @@ export class ListaService {
     return of(this._lista);
   }
   criar(input: string): Observable<Item[]> {
-    if (this.idItemEmEdicao !== -1) {
-      this._lista[this.idItemEmEdicao].nome = input;
-      this.idItemEmEdicao = -1;
+    if (this._id() !== -1) {
+      this._lista[this._id()].nome = input;
+      this._id.set(-1);
     }
     else {
       this._lista.push({ nome: input, qt: 0 });
@@ -34,12 +34,12 @@ export class ListaService {
     return of(this._lista);
   }
   editar(item: Item): Observable<Item[]> {
-    this.idItemEmEdicao = this._lista.indexOf(item);
+    this._id.set(this._lista.indexOf(item));
     return of(this._lista);
   }
   excluir(item: Item): Observable<Item[]> {
     this._lista.splice(this._lista.indexOf(item), 1);
-    this.idItemEmEdicao = -1;
+    this._id.set(-1);
     this.salvar();
     return of(this._lista);
   }
