@@ -6,63 +6,71 @@ import { Item } from '../shared/item';
   providedIn: 'root'
 })
 export class ListaService {
-  private lista: Item[] = [];
+  private _lista: Item[] = [];
   private crescente = false;
-  idItemEmEdicao = -1;
-  getLista() {
-    return this.lista;
+  private idItemEmEdicao = -1;
+  get id(): number {
+    return this.idItemEmEdicao;
+  }
+  get lista(): readonly Item[] {
+    return this._lista;
   }
   salvar() {
-    localStorage.setItem('Itens', JSON.stringify(this.lista));
+    localStorage.setItem('Itens', JSON.stringify(this._lista));
   }
   listar(): Observable<Item[]> {
-    this.lista = JSON.parse(localStorage.getItem('Itens') ?? '[]');
-    return of(this.lista);
+    this._lista = JSON.parse(localStorage.getItem('Itens') ?? '[]');
+    return of(this._lista);
   }
-  criar(item: Item): Observable<Item> {
+  criar(input: string): Observable<Item[]> {
     if (this.idItemEmEdicao !== -1) {
-      this.lista[this.idItemEmEdicao].nome = item.nome;
+      this._lista[this.idItemEmEdicao].nome = input;
       this.idItemEmEdicao = -1;
     }
     else {
-      item.id = this.lista.length ? this.lista[this.lista.length - 1].id + 1 : 0;
-      this.lista.push(item);
+      this._lista.push({ nome: input, qt: 0 });
+    }
+    this.salvar();
+    return of(this._lista);
+  }
+  editar(item: Item): Observable<Item[]> {
+    this.idItemEmEdicao = this._lista.indexOf(item);
+    return of(this._lista);
+  }
+  excluir(item: Item): Observable<Item[]> {
+    this._lista.splice(this._lista.indexOf(item), 1);
+    this.idItemEmEdicao = -1;
+    this.salvar();
+    return of(this._lista);
+  }
+  aumenta(item: Item): Observable<Item[]> {
+    this._lista[this._lista.indexOf(item)].qt++;
+    this.salvar();
+    return of(this._lista);
+  }
+  diminui(item: Item): Observable<Item[]> {
+    if (item.qt > 0) {
+      this._lista[this._lista.indexOf(item)].qt--;
       this.salvar();
     }
-    return of(item);
+    return of(this._lista);
   }
-  buscar(id: number) {
-    const item = this.lista.find(item => item.id === id);
-    return of(item);
-  }
-  editar(item: Item): Observable<boolean> {
-    const aux = this.lista.findIndex(itemDaLista => itemDaLista.id === item.id);
-    this.lista[aux] = item;
-    this.salvar();
-    return of(true);
-  }
-  excluir(id: number): Observable<boolean> {
-    const aux = this.lista.findIndex(itemDaLista => itemDaLista.id === id);
-    this.lista.splice(aux, 1);
-    this.salvar();
-    return of(true);
-  }
-  ordenarPorNome() {
+  ordenarPorNome(): Observable<Item[]> {
     this.crescente = !this.crescente;
     if (this.crescente)
-      this.lista.sort((a, b) => a.nome.localeCompare(b.nome));
+      this._lista.sort((a, b) => a.nome.localeCompare(b.nome));
     else
-      this.lista.sort((a, b) => b.nome.localeCompare(a.nome));
+      this._lista.sort((a, b) => b.nome.localeCompare(a.nome));
     this.salvar();
-    return of(this.lista);
+    return of(this._lista);
   }
-  ordenarPorQt() {
+  ordenarPorQt(): Observable<Item[]> {
     this.crescente = !this.crescente;
     if (this.crescente)
-      this.lista.sort((a, b) => a.qt - b.qt);
+      this._lista.sort((a, b) => a.qt - b.qt);
     else
-      this.lista.sort((a, b) => b.qt - a.qt);
+      this._lista.sort((a, b) => b.qt - a.qt);
     this.salvar();
-    return of(this.lista);
+    return of(this._lista);
   }
 }

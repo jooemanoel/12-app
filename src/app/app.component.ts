@@ -10,6 +10,6 @@ export class AppComponent {
   title = '12-app';
   constructor(private service: ListaService) { }
   get idItemEmEdicao() {
-    return this.service.idItemEmEdicao;
+    return this.service.id;
   }
 }

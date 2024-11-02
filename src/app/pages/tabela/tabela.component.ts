@@ -11,7 +11,7 @@ export class TabelaComponent implements OnInit {
   lista: Item[] = [];
   constructor(private service: ListaService) { }
   ngOnInit() {
-    this.service.listar().subscribe(listaItens => this.lista = listaItens);
+    this.service.listar().subscribe(lista => this.lista = lista);
   }
   ordenarPorNome() {
     this.service.ordenarPorNome().subscribe(lista => this.lista = lista);
@@ -20,20 +20,15 @@ export class TabelaComponent implements OnInit {
     this.service.ordenarPorQt().subscribe(lista => this.lista = lista);
   }
   editarItem(item: Item) {
-    this.service.idItemEmEdicao = this.lista.indexOf(item);
-    console.log(this.service.idItemEmEdicao)
+    this.service.editar(item).subscribe();
   }
   apagarItem(item: Item) {
-    this.service.excluir(item.id);
+    this.service.excluir(item).subscribe(lista => this.lista = lista);
   }
   aumenta(item: Item) {
-    item.qt++;
-    this.service.editar(item);
+    this.service.aumenta(item).subscribe(lista => this.lista = lista);
   }
   diminui(item: Item) {
-    if (item.qt > 0) {
-      item.qt--;
-      this.service.editar(item);
-    }
+    this.service.diminui(item).subscribe(lista => this.lista = lista);
   }
 }
