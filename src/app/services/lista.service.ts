@@ -61,6 +61,7 @@ export class ListaService {
       this._lista.sort((a, b) => a.nome.localeCompare(b.nome));
     else
       this._lista.sort((a, b) => b.nome.localeCompare(a.nome));
+    this._id.set(-1);
     this.salvar();
     return of(this._lista);
   }
@@ -70,6 +71,7 @@ export class ListaService {
       this._lista.sort((a, b) => a.qt - b.qt);
     else
       this._lista.sort((a, b) => b.qt - a.qt);
+    this._id.set(-1);
     this.salvar();
     return of(this._lista);
   }
