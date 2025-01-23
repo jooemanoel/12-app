@@ -2,26 +2,32 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
 
-## Development server
+## Gerar configuração do karma
+ng generate config karma
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Adicionar o ESLint
+ng add @angular-eslint/schematics
 
-## Code scaffolding
+## Adicionar o Angular Material
+ng add @angular/material
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Adicionar o Bootstrap
 
-## Build
+### Instalação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+npm i bootstrap@5.3.3
 
-## Running unit tests
+npm i bootstrap-icons
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Configuração
 
-## Running end-to-end tests
+ANGULAR.JSON
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+"styles": [
+"src/styles.css",
+"node_modules/bootstrap/dist/css/bootstrap.min.css",
+"node_modules/bootstrap-icons/font/bootstrap-icons.css"
+],
+"scripts": [
+"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+]
