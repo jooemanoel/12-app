@@ -1,7 +1,7 @@
 <div class="container pt-3">
     <div class="hstack gap-3">
-        <input class="form-control me-auto" name="input" type="text" placeholder="Adicionar um produto"
-            aria-label="Adicionar um produto" [(ngModel)]="input">
+        <input class="form-control me-auto" name="input" type="text" placeholder="Adicionar um item"
+            aria-label="Adicionar um item" [(ngModel)]="input">
         <button type="button" class="btn btn-primary" (click)="adicionarItem()"
             [disabled]="!input">{{textoBotao}}</button>
     </div>

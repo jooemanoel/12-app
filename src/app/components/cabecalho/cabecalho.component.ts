@@ -10,14 +10,13 @@ export class CabecalhoComponent {
   input = '';
   constructor(private service: ListaService) {
     effect(() => {
-      this.input = this.service.id !== -1 ? this.lista[this.service.id].nome : '';
+      const id = this.service.id();
+      const item = this.service.lista.find(x => x.id === id);
+      if (item) this.input = item.nome;
     });
   }
-  get lista() {
-    return this.service.lista;
-  }
   get textoBotao() {
-    return this.service.id === -1 ? 'Adicionar' : 'Editar';
+    return this.service.id() ? 'Editar' : 'Adicionar';
   }
   adicionarItem() {
     this.service.criar(this.input);
